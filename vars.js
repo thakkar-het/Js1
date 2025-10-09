@@ -19,3 +19,5 @@ console.table ([accId,accEmail,accPswd,accCity,accState])
  preferable if we make a variable without giving its value anything
  then on printing it will show undefined*/
 
+
+// Some comment
