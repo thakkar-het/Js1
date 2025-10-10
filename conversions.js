@@ -1,9 +1,9 @@
+//number
 let answer="44"
 console.log(typeof answer);
 let valInNum=Number(answer)
 console.log(typeof valInNum);
 console.log(valInNum);//44
-
 
 let score="11xyz";
 console.log(typeof score);
@@ -34,7 +34,7 @@ console.log(typeof why);
 let valid=Number(why)
 console.log(typeof valid);
 console.log(valid);//NaN
-
+//boolean
 let log=1
 let booleanlog=Boolean(log)
 console.log(typeof booleanlog);
@@ -50,9 +50,36 @@ let booleanloggg=Boolean(loggg)
 console.log(typeof booleanloggg);
 console.log(booleanloggg);//true
 
-let lo=1
+let lo=null
 let booleanlo=Boolean(lo)
 console.log(typeof booleanlo);
-console.log(booleanlo);
+console.log(booleanlo);//false
 
+let lo2=undefined
+let booleanlo2=Boolean(lo2)
+console.log(typeof booleanlo2);
+console.log(booleanlo2);//false
+//string
+let val1=44
+console.log(typeof val1);
+let strval=String(val1)
+console.log(typeof strval);
+console.log(strval);//"44"
 
+let val2=true
+console.log(typeof val2);
+let strval2=String(val2)
+console.log(typeof strval2);
+console.log(strval2);//"true"
+
+let val3=null
+console.log(typeof val3);
+let strval3=String(val3)
+console.log(typeof strval3);
+console.log(strval3);//"null"
+
+let val4=undefined
+console.log(typeof val4);
+let strval4=String(val4)
+console.log(typeof strval4);
+console.log(strval4);//"undefined"
