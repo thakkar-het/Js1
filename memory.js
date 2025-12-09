@@ -1,4 +1,4 @@
-// stack memory(primitive) and heap memory(non-primitive)
+// stack memory(primitive , copy) and heap memory(non-primitive , reference)
 
 //stack
 let familyName= "Het's Family"
