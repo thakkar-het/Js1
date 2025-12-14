@@ -28,6 +28,6 @@ console.log(typeof isLoggedIn);
 console.log(typeof state);
 console.log(typeof null);
 console.log(typeof undefined);
-console.log(typeof object);
+console.log(typeof object) ;
 
 
