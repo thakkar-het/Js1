@@ -11,7 +11,7 @@ console.log(accId);
 console.log(accEmail);
 console.log(accPswd);
 console.log(accCity);
-console.table ([accId,accEmail,accPswd,accCity,accState])
+console.table ([accId,accEmail,accPswd,accCity,accState]);
 
 /*don't use var oly use let as it creates block statements problem
  for multiple users and files and variable can also be safely defined by
