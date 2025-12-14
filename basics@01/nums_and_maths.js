@@ -53,6 +53,6 @@ let max = 14;
 // console.log((Math.random() * (max - min + 1) + min).toFixed(2));
 
 // if we want only integers then we can write 
-// Math.floor(Math.random() * (max - min + 1)) + min
+// Math.floor(Math.random() * (max - min + 1)) + min;
 
 console.log(Math.floor(Math.random() * (max - min + 1)) + min);
