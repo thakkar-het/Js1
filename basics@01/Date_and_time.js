@@ -46,3 +46,4 @@ let options = {
   timeZoneName: "short",
 };
 console.log(newDate.toLocaleString("en-IN", options));
+console.log(newDate.toLocaleString("hi-IN", options));
