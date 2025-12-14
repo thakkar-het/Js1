@@ -11,7 +11,7 @@
 //symbol
 
 // examples
-let name="hmdt"  //string
+let name="hmdt" ; //string
 let age=22        //number
 let ageValue=22.5   //number
 let isLoggedIn=true  //boolean
