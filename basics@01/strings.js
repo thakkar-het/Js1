@@ -2,7 +2,7 @@
 let name = "het";
 let surname = "thakkar";
 let age = 21;
-// console.log(name + " " + surname + " " + age); // old method not recommended
+// console.log(name + " " + surname + " " + age); // old method not recommended //
 
 // console.log(`my name is ${name} my surname is ${surname} my Age is ${age}`); // new method recommended
 let friendname = new String("JaYeSh"); // string object and another way to create string
