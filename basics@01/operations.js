@@ -23,7 +23,7 @@ console.log(str3);
 // console.log("1"+2+2);
 // console.log(1+2+"2");//remember the rule for operations
 
-// //extra from vs code side
+// //extra from vs code side //
 
 // console.log("1"-2);
 // console.log(1-"2");
