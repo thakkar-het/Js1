@@ -14,7 +14,7 @@ function myFunction()
 
 // function addTwoNumbers(num1, num2) //here num1 and num2 are called parameters
 // {
-//     console.log(num1 + num2);
+//   console.log(num1 + num2);
 // }
 // let result = addTwoNumbers(3, 4);
 // console.log(result);
@@ -37,12 +37,40 @@ function myFunction()
 
 function Greeting(name /* = "HET" to be safe*/) // if some value is not passed then it will be undefined or if the safe case is written then it will be "HET" or be ovwerriden if some value is passed
 {
-    if(name === undefined) // to check if no argument is passed also written as if(!name)
-    {
-        console.log("please enter a username");
-        return;
-    }
-    return `${name} just logged in`;
+  if(name === undefined) // to check if no argument is passed also written as if(!name) // empty string, null, undefined, 0, NaN all are falsy values
+  {
+    console.log("please enter a username");
+    return;
+  }
+  return `${name} just logged in`;
 }
-console.log(Greeting()); // undefined just logged in // if the "if" condition was not written
-console.log(Greeting("HET")); // HET just logged in
+// console.log(Greeting()); // undefined just logged in, if the "if" condition was not written // please enter a username and undefined
+// console.log(Greeting("HET")); // HET just logged in
+
+// when we dont know how many number of arguments will be passed we use rest operator
+function get_all_numbers(...numbers)
+{
+  return numbers;
+}
+// console.log(get_all_numbers(100, 500, 200, 3000));
+// we can also pass objects and arrays as arguments to functions
+let Obj1 = 
+{
+  name: "HET",
+  age: 20,
+  city: "Ahmedabad"
+};
+function Object_fxn(anyobject)
+{
+  return `Name is ${anyobject.name}, Age is ${anyobject.age}, City is ${anyobject.city}`;
+}
+console.log(Object_fxn(Obj1)); // or we can directly pass an object without storing it in a variable
+console.log(Object_fxn({name: "ABC", age: 25, city: "Mumbai"}));
+
+let arr1 = [10, 20, 30, 40, 50];
+function Array_sec_val_fxn(anyarray)
+{
+  return anyarray[1];
+}
+console.log(Array_sec_val_fxn(arr1)); // or we can directly pass an array without storing it in a variable
+console.log(Array_sec_val_fxn([100, 200, 300, 400]));
