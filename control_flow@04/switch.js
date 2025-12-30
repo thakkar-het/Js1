@@ -1,4 +1,4 @@
-// Switch case syntax:- 
+// Switch case syntax :- 
 // switch (key) 
 // {
 //     case value:
