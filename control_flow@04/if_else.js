@@ -7,7 +7,7 @@ if(2 === 2) // true
 }
 if(2 === "2") // false 
 {
-    // code in this scope will not b eexecuted
+    // code in this scope will not be executed
 }
 
 // conditional operators
