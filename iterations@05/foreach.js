@@ -47,4 +47,4 @@ newarr.forEach( (item, index, arr) =>
     {
         console.log(`third person lives in ${item.land}`);
     }
-} )
+} );
