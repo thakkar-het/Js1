@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-16">
+
+        <title> DOM lecture </title>
+        <style>
+            body
+            {
+                background-color: black;
+                color: aqua;
+                font-size: large;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="background-color: red; color: white;" id="this_is_myid" class="maikyubatau">Let's learn DOM <span style="display: none;"> hidden text</span></h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. first</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. second</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. third</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. fourth</p>
+        <input type="password">
+        
+        <ul>
+            <li class ="item name" >one</li>
+            <li id="name" class ="item name" >two</li>
+            <li class ="item name" >three</li>
+        </ul>
+
+    </body>
+    </html>
+    
+    <!-- 
+        
+    diagram of DOM(document object model) structure
+    
+            Window
+             |
+             v
+            Document
+             |
+             v
+             HTML
+             |
+    |--------v--------|
+    |                 |
+    v                 v
+    Head             Body---------------
+    |                                 |
+    |                                 |
+    |                        |--------v----------------------------|
+    |                        |                                     |
+    |                        v                                     v
+    |-------v--------|              h1 ---------|               Paragraph
+    |                |              |           |                  |
+    v                v              v           v                  v
+    Title            Meta          Attribute    Text Node        Text Node
+    |                 |
+    v                 v
+    Text Node        Attribute
+    
+    -->
+                        
+<!-- SOME THINGS THAT ARE DONE IN BROWSER CONSOLE
+
+console.log(document);
+console.dir(document);
+console.log(window.document);
+console.log(window); 
+console.log(document.links); this will give all the links in the document. in HTML collection form. but "Not an array"
+
+document.getElementById("this_is_myid");
+document.getElementById("this_is_myid").innerHTML = " <h1> My Name is Het </h1> "
+document.getElementById("this_is_myid").id;
+document.getElementById("this_is_myid").className;
+document.getElementById("this_is_myid").getAttribute;
+document.getElementById("this_is_myid").getAttribute("class");
+document.getElementById("this_is_myid").setAttribute("class", "my_TEST");
+
+let myh1 = document.getElementById("this_is_myid");
+myh1.style.backgroundColor = "green";
+myh1.style.padding = "10px";
+myh1.style.borderRadius = "20px";
+
+myh1.textContent; // will give the text content without html tags but will consider hidden text also
+myh1.innerText;  // will give the text content without html tags.
+myh1.innerHTML; // will give the text content with html tags.
+
+document.getElementsByClassName("maikyubatau");
+document.querySelector(".maikyubatau");
+document.querySelector("#this_is_myid");
+document.querySelector("input[type = 'password']");
+document.querySelector("p:first-of-type");
+document.querySelector("ul");
+let my_UL = document.querySelector("ul");
+my_UL.querySelector("li").style.color = "red";
+my_UL.querySelector("li").innerText = "My value";
+
+document.querySelectorAll("p");
+document.querySelectorAll("li");
+let my__LIST = document.querySelectorAll("li"); // REMEMBER this will give Node list NOT AN ARRAY
+my__LIST[1].style.color = "blue";
+let myh1 = document.querySelectorAll("h1");
+myh1.style.backgroundColor = "yellow"; // will give error because myh1 is node list not an array.
+my_LIST.forEach((item) =>
+{
+    console.log(item);
+});
+document.getElementsByClassName("item name"); // will give HTML collection NOT AN ARRAY forEach is not in it's prototype so we can't use it here.
+to use it in loop we have to convert it into array first.
+let myitems = document.getElementsByClassName("item name");
+
+Array.from(myitems); // this will convert it into array.
+[...myitems]; // this will also convert it into array.
+let myitemsArray = Array.from(myitems);
+
+myitemsArray.forEach((item) =>
+{
+    item.style.backgroundColor = "grey";
+});
+
+-->
+<!-- HTML colllection, Node collection etc. are array like object but not array they can be convetred to it. -->
