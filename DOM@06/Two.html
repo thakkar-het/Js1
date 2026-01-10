@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DOM part 2</title>
+        <style>
+            body
+            {
+                background-color: black;
+                color: aqua;
+                font-size: large;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="week">
+            <div class="day">Mon</div>
+            <div class="day">Tue</div>
+            <div class="day">Wed</div>
+            <div class="day">Thu</div>
+            <div class="day">Fri</div>
+            <div class="day">Sat</div>
+            <div class="day">Sun</div>
+        </div>
+    </body>
+    <script>
+        let parent = document.querySelector(".week");
+        // console.log(parent);
+        // console.log(parent.children);
+        // console.log(parent.children[3].innerHTML);
+
+        // for(let i = 0 ; i < parent.children.length ; i++)
+        // {
+        //     console.log(parent.children[i].innerHTML);
+        // }
+
+        parent.children[3].style.backgroundColor = "green";
+        parent.children[3].style.color = "white";
+        // console.log(parent.firstElementChild);
+        // console.log(parent.lastElementChild);
+
+        let child1 = document.querySelector(".day");
+        // console.log(child1.parentElement);
+        // console.log(child1.nextElementSibling);
+        // console.log(child1.nextElementSibling.nextElementSibling);
+
+        // console.log("NODES: ", parent.childNodes); // text nodes also
+
+        let mydiv = document.createElement("div");
+        mydiv.className = "maiclasshu";
+        mydiv.id = Math.round(Math.random() * 10 + 1);
+        mydiv.setAttribute("title", "maititlehu");
+        mydiv.style.backgroundColor = "grey";
+        mydiv.style.color = "white";
+        mydiv.style.padding = "12px";
+
+        // mydiv.innerText = "maidivhu";
+        
+        let add_text = document.createTextNode("Het Thakkar");
+        mydiv.appendChild(add_text);
+
+        document.body.appendChild(mydiv);
+        console.log(mydiv);
+        </script>
+</html>
