@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Final Lecture</title>
+        <style>
+                body
+                {
+                    background-color: black;
+                    color: aqua;
+                    font-size: large;
+                }
+            </style>
+    </head>
+    <body>
+        <ul class="languages">
+            <li>Javascript</li>
+            <li>C</li>
+            <li>Python</li>
+        </ul>
+    </body>
+    
+    <script>
+        // Add
+        function add_lang(langname)
+        {
+            let newli = document.createElement("li");
+            newli.innerText = `${langname}`;
+            document.querySelector(".languages").appendChild(newli);
+        }
+        add_lang("Het");
+        add_lang("Thakkar");
+
+        function create(langnames) // optimized version
+        {
+            let li = document.createElement("li");
+            li.appendChild( document.createTextNode(langnames) );
+            document.querySelector(".languages").appendChild(li);
+        }
+        create("created");
+///////////////////////////////////////////////////////////
+        // Edit
+        let sec_lang = document.querySelector("li:nth-child(2)");
+        // sec_lang.innerText = "Cpp";
+
+        // sec_lang.outerHTML = "<li> CPP </li>";
+
+        // bit of optimization
+        let edit = document.createElement("li");
+        edit.textContent = "cPP";
+        sec_lang.replaceWith(edit);
+//////////////////////////////////////////////////////////
+        // remove
+
+        let last_lang = document.querySelector("li:last-child");
+        last_lang.remove();
+//////////////////////////////////////////////////////////
+    </script>
+</html>
