@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles.css" />
+        <title>Project 2</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>My Second Project Will Calculate Your BMI Index</h1>
+            <form>
+                <p>
+                    <label for="height" class="height">Height in CMs :-  </label>
+                    <input type="text" id="height"> 
+                    <!--  --><!--  --><!--  --><!--  --><!--  -->
+                </p>
+                <p>
+                    <label for="weight" class="weight">Weight in Kgs :-  </label>
+                    <input type="text" id="weight">
+                </p>
+                <button>Calculate</button>
+                <div id="results"></div>
+
+                <div id="WH-guide">
+                    <h3>BMI Weight Guide</h3>
+                    <p class="p1">Under Weight = Less than 18.6</p>
+                    <p class="p2">Normal Range = 18.6 and 24.9</p>
+                    <p class="p3">Overweight = Greater than 24.9</p>
+                </div>
+            </form>
+        </div>
+    </body>
+    <script>
+        let form = document.querySelector("form");
+        form.addEventListener("submit", function(event)
+        {
+            event.preventDefault();
+            
+            let height = parseInt(document.querySelector("#height").value);
+            let weight = parseInt(document.querySelector("#weight").value);
+            let results = document.querySelector("#results");
+            if(height === "" || isNaN(height) || height < 0)
+            {
+                results.innerHTML = `Please Enter An Appropiate Height ${height}`;
+            }
+            else if(weight === "" || isNaN(weight) || weight < 0)
+            {
+                results.innerHTML = `Please Enter An Appropiate Weight ${weight}`;
+            }
+            else
+            {
+                let bmi = ((weight*10000)/(height*height)).toFixed(2);
+                if(bmi < 18.6)
+                {
+                    results.innerHTML = `<span> You Are UnderWeight And Your BMI Index Is ${bmi} </span>`
+                    document.querySelector("h3").innerText = "";
+                    document.querySelector(".p1").innerText = "";
+                    document.querySelector(".p2").innerText = "";
+                    document.querySelector(".p3").innerText = "";
+                }
+                if(bmi > 18.6 && bmi < 24.9)
+                {
+                    results.innerHTML = `<span> You Are NormalWeight And Your BMI Index Is ${bmi} </span>`
+                    document.querySelector("h3").innerText = "";
+                    document.querySelector(".p1").innerText = "";
+                    document.querySelector(".p2").innerText = "";
+                    document.querySelector(".p3").innerText = "";
+                    
+                }
+                if(bmi > 24.9)
+                {
+                    results.innerHTML = `<span> You Are OverWeight And Your BMI Index Is ${bmi} </span>`
+                    document.querySelector("h3").innerText = "";
+                    document.querySelector(".p1").innerText = "";
+                    document.querySelector(".p2").innerText = "";
+                    document.querySelector(".p3").innerText = "";
+                }
+            }
+        })
+    </script>
+</html>

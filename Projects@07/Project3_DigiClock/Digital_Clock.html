@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project 3</title>
+        <style>
+            body
+            {
+                background-color: black;
+                color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center;">
+            Project 3 Will Display Your Current Device Time
+        </h1>
+
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+        <p style="display: block; border: solid black 2px; padding: 12px; background-color: red; width: 300px; text-align: center; margin: 0 auto; color: white; font-size: 25px;">
+            Your Time With Date and Day are :-
+        </p>
+        <p style="display: block; border: solid black 2px; padding: 12px; background-color: red; width: 300px; text-align: center; margin: 0 auto; color: white; font-size: 25px;" class="Time">
+            
+        </p>
+    </body>
+    <script>
+        
+        function updateTime()
+        {
+            let date = new Date();
+            let taarikh = date.getDate();
+            let mahina = date.getMonth() + 1;
+            let saal = date.getFullYear();
+            let ghante = date.getHours();
+            let menat = date.getMinutes();
+            let sikands = date.getSeconds();
+            let divas = date.getDay();
+            let period = 'AM'
+    
+            if(ghante >= 12)
+            {
+                ghante -= 12;
+                period = 'PM'
+            }
+            else
+            {
+                period = 'AM'
+            }
+            if(ghante === 0)
+            {
+                ghante = 12;
+            }
+            
+            let Final  = document.querySelector("p.Time");
+            switch (mahina) 
+            {
+                case 1:
+                    mahina = "January";
+                    break;
+                case 2:
+                    mahina = "February";
+                    break;
+                case 3:
+                    mahina = "March";
+                    break;
+                case 4:
+                    mahina = "April";
+                    break;
+                case 5:
+                    mahina = "May";
+                    break;
+                case 6:
+                    mahina = "June";
+                    break;
+                case 7:
+                    mahina = "July";
+                    break;
+                case 8:
+                    mahina = "August";
+                    break;
+                case 9:
+                    mahina = "September";
+                    break;
+                case 10:
+                    mahina = "October";
+                    break;
+                case 11:
+                    mahina = "November";
+                    break;
+                case 12:
+                    mahina = "December";
+                    break;
+                default:
+                    break;
+            }
+            switch (taarikh) 
+            {
+                case 1:
+                    taarikh = "1 st";
+                    break;
+                case 2:
+                    taarikh = "2 nd";
+                    break;
+                case 3:
+                    taarikh = "3rd";
+                    break;
+                case 21:
+                    taarikh = "21 st";
+                    break;
+                case 22:
+                    taarikh = "22 nd";
+                    break;
+                case 23:
+                    taarikh = "23 rd";
+                    break;
+                case 31:
+                    taarikh = "31 st";
+                    break;
+            
+                default:
+                    taarikh += " th"
+                    break;
+            }
+            switch(divas)
+            {
+                case 1: 
+                divas = "Monday";
+                break;
+                case 2: 
+                divas = "Tuesday";
+                break;
+                case 3: 
+                divas = "Wednesday";
+                break;
+                case 4: 
+                divas = "Thursday";
+                break;
+                case 5: 
+                divas = "Friday";
+                break;
+                case 6: 
+                divas = "Saturday";
+                break;
+                case 7: 
+                divas = "Sunday";
+                break;
+            }
+            Final.innerText = `Time is ${ghante}: ${menat}: ${sikands} ${period} \n Date is ${taarikh} ${mahina} ${saal} And \n Today Is ${divas}`;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project 4</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <h1> Project 4 Is A Game In Which You Have To Guess A Number Randomly Generated Between 1 To 100</h1>
+        <p class="general"> Choose Game Difficulty</p>
+        <div class="level">
+            <b> <button style="color: green; background-color: black; font-size: 25px;" id="Easy">Easy (10 Trys)</button> </b>
+            <b><button style="color: yellow; background-color: black; font-size: 25px;" id="Medium">Medium (7 Trys)</button> </b>
+            <b><button style="color: red; background-color: black; font-size: 25px;" id="Hard">Hard (4 Trys)</button> </b>
+        </div>
+        <div>
+            <p class="trys_left"></p>
+        </div>
+    </body>
+    <script>
+        let Sel_E = document.getElementById("Easy");
+        let Sel_M = document.getElementById("Medium");
+        let Sel_H = document.getElementById("Hard");
+        let div = document.querySelector(".level");
+        let left_att = document.querySelector(".trys_left");
+        let p = document.querySelector(".general");
+        let random = parseInt(Math.random()*100 + 1);
+        
+        Sel_E.addEventListener('click', function()
+        {
+            div.innerHTML = "<form class='display'> <p>Guess the number</p> <input type='text' id='guessedNum'/> <input type='submit'/> </form>";
+            p.innerHTML = "";
+            startEasy();
+        });
+        Sel_M.addEventListener('click', function()
+        {
+            div.innerHTML = "<form class='display'> <p>Guess the number</p> <input type='text' id='guessedNum'/> <input type='submit'/> </form>";
+            p.innerHTML = "";
+            startMedium();
+        });
+        Sel_H.addEventListener('click', function()
+        {
+            div.innerHTML = "<form class='display'> <p>Guess the number</p> <input type='text' id='guessedNum'/> <input type='submit'/> </form>";
+            p.innerHTML = "";
+            startHard();
+        });
+        
+        function startEasy()
+        {
+            let tries = 10;
+            let form = document.querySelector(".display");
+            let prevGuess = [];
+            form.addEventListener('submit', function(e)
+            {
+                e.preventDefault();
+                if(tries > 0)
+                {
+                    let userNum = document.getElementById("guessedNum").value;
+                    if(isNaN(userNum) || userNum < 1 || userNum > 100)
+                    {
+                        document.getElementById("guessedNum").value='';
+                        left_att.innerHTML = `Please enter a valid number between 1 and 100`;   
+                    }
+                    else if(userNum < random)
+                    {
+                        document.getElementById("guessedNum").value='';
+                        tries--;
+                        prevGuess.push(userNum);
+                        left_att.innerHTML = `Your Guess is Lower Than Random Number. You Have ${tries} tries left. Your Previous Guesses Are [${prevGuess}]`;
+                    }
+                    else if(userNum > random)
+                    {
+                        document.getElementById("guessedNum").value='';
+                        tries--;
+                        prevGuess.push(userNum);
+                        left_att.innerHTML = `Your Guess is Higher Than Random Number. You Have ${tries} tries left. Your Previous Guesses Are [${prevGuess}]`;
+                    }
+                    else
+                    {
+                        document.getElementById("guessedNum").value='';
+                        left_att.innerHTML = `You Guessed The Number ${random} Correctly!`;
+                        form.innerHTML = "";
+                        end();
+                    }
+                }
+                if(tries == 0)
+                {
+                    document.getElementById("guessedNum").value='';
+                    left_att.innerHTML = `You Have No Tries Left. The Random Number Was ${random}. Game Over!`;
+                    form.innerHTML = "";
+                    end();
+                }
+                
+            })
+        }
+
+        function startMedium()
+        {
+            let tries = 7;
+            let form = document.querySelector(".display");
+            let prevGuess = [];
+            form.addEventListener('submit', function(e)
+            {
+                e.preventDefault();
+                if(tries > 0)
+                {
+                    let userNum = document.getElementById("guessedNum").value;
+                    if(isNaN(userNum) || userNum < 1 || userNum > 100)
+                    {
+                        document.getElementById("guessedNum").value='';
+                        left_att.innerHTML = `Please enter a valid number between 1 and 100`;   
+                    }
+                    else if(userNum < random)
+                    {
+                        document.getElementById("guessedNum").value='';
+                        tries--;
+                        prevGuess.push(userNum);
+                        left_att.innerHTML = `Your Guess is Lower Than Random Number. You Have ${tries} tries left. Your Previous Guesses Are [${prevGuess}]`;
+                    }
+                    else if(userNum > random)
+                    {
+                        document.getElementById("guessedNum").value='';
+                        tries--;
+                        prevGuess.push(userNum);
+                        left_att.innerHTML = `Your Guess is Higher Than Random Number. You Have ${tries} tries left. Your Previous Guesses Are [${prevGuess}]`;
+                    }
+                    else
+                    {
+                        document.getElementById("guessedNum").value='';
+                        left_att.innerHTML = `You Guessed The Number ${random} Correctly!`;
+                        form.innerHTML = "";
+                        end();
+                    }
+                }
+                if(tries == 0)
+                {
+                    document.getElementById("guessedNum").value='';
+                    left_att.innerHTML = `You Have No Tries Left. The Random Number Was ${random}. Game Over!`;
+                    form.innerHTML = "";
+                    end();
+                }
+                
+            })
+        }
+
+        function startHard()
+        {
+            let tries = 4;
+            let form = document.querySelector(".display");
+            let prevGuess = [];
+            form.addEventListener('submit', function(e)
+            {
+                e.preventDefault();
+                if(tries > 0)
+                {
+                    let userNum = document.getElementById("guessedNum").value;
+                    if(isNaN(userNum) || userNum < 1 || userNum > 100)
+                    {
+                        document.getElementById("guessedNum").value='';
+                        left_att.innerHTML = `Please enter a valid number between 1 and 100`;   
+                    }
+                    else if(userNum < random)
+                    {
+                        document.getElementById("guessedNum").value='';
+                        tries--;
+                        prevGuess.push(userNum);
+                        left_att.innerHTML = `Your Guess is Lower Than Random Number. You Have ${tries} tries left. Your Previous Guesses Are [${prevGuess}]`;
+                    }
+                    else if(userNum > random)
+                    {
+                        document.getElementById("guessedNum").value='';
+                        tries--;
+                        prevGuess.push(userNum);
+                        left_att.innerHTML = `Your Guess is Higher Than Random Number. You Have ${tries} tries left. Your Previous Guesses Are [${prevGuess}]`;
+                    }
+                    else
+                    {
+                        document.getElementById("guessedNum").value='';
+                        left_att.innerHTML = `You Guessed The Number ${random} Correctly!`;
+                        form.innerHTML = "";
+                        end();
+                    }
+                }
+                if(tries == 0)
+                {
+                    document.getElementById("guessedNum").value='';
+                    left_att.innerHTML = `You Have No Tries Left. The Random Number Was ${random}. Game Over!`;
+                    form.innerHTML = "";
+                    end();
+                }
+                
+            })
+        }
+
+        function end()
+        {
+            left_att.innerHTML += "<p> Want To Play Again? (Give Y for Yes and N for No) <input type='text' id = 'W_T_P'/> <button class = 'WANT'> Submit </button></p>";
+            let but = document.getElementsByClassName('WANT')[0];
+            let input = document.getElementById('W_T_P');
+            
+            but.addEventListener('click', function(e)
+            {
+                e.preventDefault();
+                if(input.value == 'y' || input.value == 'Y')
+                {
+                    p.innerHTML = '';
+                    left_att.innerHTML = '';
+                    input.value = '';
+                    div.innerHTML = "<p> Choose Game Difficulty</p> <b> <button style='color: green; background-color: black; font-size: 25px;' id='Easy'>Easy (10 Trys)</button> </b><b><button style='color: yellow; background-color: black; font-size: 25px;' id='Medium'>Medium (7 Trys)</button> </b><b><button style='color: red; background-color: black; font-size: 25px;' id='Hard'>Hard (4 Trys)</button> </b>";
+                    random = parseInt(Math.random()*100 + 1);
+                    Sel_E = document.getElementById("Easy");
+                    Sel_M = document.getElementById("Medium");
+                    Sel_H = document.getElementById("Hard");
+        
+                    Sel_E.addEventListener('click', function()
+                    {
+                        div.innerHTML = "<form class='display'> <p>Guess the number</p> <input type='text' id='guessedNum'/> <input type='submit'/> </form>";
+                        p.innerHTML = "";
+                        startEasy();
+                    });
+                    Sel_M.addEventListener('click', function()
+                    {
+                        div.innerHTML = "<form class='display'> <p>Guess the number</p> <input type='text' id='guessedNum'/> <input type='submit'/> </form>";
+                        p.innerHTML = "";
+                        startMedium();
+                    });
+                    Sel_H.addEventListener('click', function()
+                    {
+                        div.innerHTML = "<form class='display'> <p>Guess the number</p> <input type='text' id='guessedNum'/> <input type='submit'/> </form>";
+                        p.innerHTML = "";
+                        startHard();
+                    });
+                }
+                else if(input.value == 'n' || input.value == 'N')
+                {
+                    input.value = '';
+                    div.innerHTML = '';
+                    left_att.innerHTML = '';
+                    p.innerHTML = "THANKS FOR PLAYING!!!"
+                }
+                else
+                {
+                    input.value = '';
+                    p.innerHTML = "Please Give A Valid Input";
+                }
+            });
+        }
+
+    </script>
+</html>

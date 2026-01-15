@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles.css">
+        <title>Project 1</title>
+    </head>
+    <body>
+        <div class="canvas">
+            <h1 style="color: chocolate;"> My First Project Is Background Color Changer</h1>
+            <span class="button" id="grey"></span>
+            <span class="button" id="white"></span>
+            <span class="button" id="blue"></span>
+            <span class="button" id="yellow"></span>
+            <span class="button" id="red"></span>
+            <span class="button" id="green"></span>
+            <span class="button" id="black"></span>
+            <span class="button" id="orange"></span>
+            <span class="button" id="purple"></span>
+            <span class="button" id="pink"></span>
+            <span class="button" id="brown"></span>
+            <span class="button" id="gold"></span>
+            <h2 style="color: chocolate;">On Pressing Any Of The Colors Your Background Color Changes To The Respective Color</h2>
+        </div>
+    </body>
+    <script>
+        let body = document.querySelector("body");
+        let buttons = document.querySelectorAll(".button");
+        buttons.forEach( (val) => 
+        {
+            val.addEventListener('click', function (val1)
+            {
+                if(val1.target.id == "grey")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "white")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "blue")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "yellow")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "red")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "green")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "black")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "orange")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "purple")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "pink")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "brown")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+                if(val1.target.id == "gold")
+                {
+                    body.style.backgroundColor = val1.target.id;
+                }
+            })
+        } )
+    </script>
+</html>
