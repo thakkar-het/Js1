@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Async practical</title>
+        <style>
+            body
+            {
+                background-Color: black;
+                color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Code With Het</h1>
+        <button id="stop">Stop Heading from Changing</button>
+
+    </body>
+    <script>
+        let Head_Change = function()
+        {
+            document.querySelector('h1').innerHTML = "JS With Het";
+        }
+        let NamePrint = function()
+        {
+            console.log("I'm in console");
+        }
+        setTimeout(NamePrint, 2000); 
+        let change = setTimeout(Head_Change, 2000);
+        // this does the work in function just once after the time in miliseconds defined with it
+
+        // if we want to stop the change in heading we can also clear the timeout before it's defined value if we directly write cleartimeout without any condition then it is never going to change the heading bcoz it's already being stopped
+
+        let butt = document.querySelector('#stop');
+        butt.addEventListener('click', function(e)
+        {
+            console.log('pressed to stop');
+            clearTimeout(change);
+        }, false);
+        
+    </script>
+</html>

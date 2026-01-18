@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Async Practical 1</title>
+        <style>
+            body
+            {
+                background-Color: black;
+                color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>JavaScript With Het</h1>
+        <button id="stop">Stop Printing</button>
+        <button id="start"> Start Printing</button>
+    </body>
+    <script>
+        let Printer = function(str)
+        {
+            console.log(str);
+        }
+        // let H_Printer = setInterval(Printer, 1000, 'Repeat'); // this will print Repeeat continuously every 1 sec
+        // clearInterval(H_Printer); // this will not let it print at least once 
+
+        let start = document.getElementById('start');
+        let stop = document.getElementById('stop');
+        let prints;
+        start.addEventListener('click', function()
+        {
+            prints = setInterval(Printer, 1000, "My Name Is Het");
+        }, false);
+        stop.addEventListener('click', function()
+        {
+            clearInterval(prints);
+        }, false);
+
+    </script>
+</html>
