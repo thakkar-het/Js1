@@ -1,0 +1,46 @@
+Default JavaScript is an synchronous language (code works in a sequence one after another) and is works on single threaded which makes it pretty slower than other languages but it does not let us feel it's slow bcoz theres no alone JS engine is found and only found in runtime environment that's why. 
+
+In execution context one line of code executes at once, each operation waits for the last one to complete
+
+
+Blocking code:- blocks flow of execution until previous execution doesn't complete (synchronous)
+
+Non Blocking code:- doesn't block flow of execution 
+
+It's not like that always blocking or non blocking code is better it depends on application, example:-
+
+if we want to do some task but it is not necassary to stop other tasks for that then async is better 
+but in some cases like sign in
+if we give registration succcesful msg before verifying it then it will be problem 
+therefore use it where it is needed as per use cases
+
+Event Loop:-
+JS Engine has memory heap and call stack which we have discussed in detail in callstack.js 
+
+In execution environment we do not have just JS Engine we also have Web API which is found in browser or we can also have node environment or any other environment instead of Web API 
+
+In Web API we have access to DOM API but in environment we do not have that there 
+
+We also have a Task Queue in makes this process a lot faster and asyncronous
+
+Also we also have Promises here which we'll learn further that has it's seperate high priority Queue or promise Queue 
+
+* In call stack after having Global EC fxns are loaded one by one and unloaded after execution then the call is sent to Web API let's have an example to understand it better with Set timeout, In meanwhile other code is executing and not blocked
+
+We need to perform some fxn after 2 seconds then we give it to Set timeout these events are then registred in a register callback as it is working asyncronously 
+
+Therefore we also have a Task Queue The execution of the particular set which is removed from callstack should be again sent back to it when defined or needed which is done by it by Queueing all registered events in a line.
+
+so whenever task Queue is sending the fxn it executes immediately and unloaded when necassary
+
+** Trick Question 
+console.log('1');
+setTimeout(0, console.log('2'));
+console.log('3');
+
+here output insteadof 1 2 3 it comes 1 3 2 as 
+the process of sending the call then to register callback then to task queue is bit time taking in meanwhile printing 3 executes first
+
+Some new APIs are recently added like fetch which also works similiarily on task queue but this has high priority then the other Queues
+
+bcoz there comes a concept called promise that tells to notify me if the work is succcesful or not after some particular time which is set by us as per need but just it has just high priority.
