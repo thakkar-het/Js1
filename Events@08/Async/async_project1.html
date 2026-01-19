@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project 5</title>
+    </head>
+    <body style="background-color: black; color: aliceblue;">
+        <h1>
+            Press on start to see a magic of my 5th project and Press stop to end
+        </h1>
+        <button class="start" style="width: 60px; height: 50px; font-size: large; background-color: green; color: whitesmoke;">Start</button>
+        <button class="stop" style="width: 60px; height: 50px; font-size: large; background-color: red; color: whitesmoke;">Stop</button> 
+    </body>
+    <script>
+    let random = function Het()
+    {
+        let Code = "0123456789ABCDEF";
+        let randomColor = "#"
+        for(let i = 0; i < 6; i++)
+        {
+            randomColor += Code[Math.floor(Math.random() * 16)];
+        }
+        return randomColor;
+    }
+        let changebgc = () =>
+        {
+            document.querySelector('body').style.backgroundColor = random();
+            console.log(`color changed`);
+            
+        };
+        let bgc_changer;
+        let srtbut = document.querySelector('.start')
+        let stpbut = document.querySelector('.stop')
+        srtbut.addEventListener('click', function()
+        {
+            bgc_changer = setInterval(changebgc, 1000);
+        });
+        stpbut.addEventListener('click', function()
+        {
+            clearInterval(bgc_changer);
+        })
+    </script>
+</html>

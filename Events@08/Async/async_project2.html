@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project 6</title>
+        <style>
+            table
+            {
+                width: 100%;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            td, th, tr
+            {
+                background-color: red;
+                border: 5px solid rgb(7, 226, 7);
+                color: aliceblue;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body style="background-color: black; color: aqua; text-align: center;">
+        <h1>Press Any Key On Keyboard And See The Magic Of My Project 6</h1>
+    </body>
+    <script>
+        window.addEventListener('keydown', function(e)
+        {
+            let h1 = document.querySelector('h1');
+            h1.innerHTML = `<table><tr><td>Key</td><td>KeyCode</td><td>Code</td></tr><tr><td>${e.key === " " ? "Space" : e.key}</td><td>${e.keyCode}</td><td>${e.code}</td></tr></table>`;
+        })
+    </script>
+</html>
