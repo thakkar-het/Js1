@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>API File(Old Method)</title>
+        <style>
+            td
+            {
+                border: 5px solid;
+                padding: 10px;
+                border-color: red;
+                text-align: center;
+            }
+            table
+            {
+                border: 5px solid;
+                padding: 10px;
+                border-color: green;
+                text-align: center;
+
+            }
+        </style>
+    </head>
+    <body style="background-color: black; color: white;">
+        <h1>Ready State Properties</h1>
+        <p>
+            0	UNSENT	Client has been created. open() not called yet. <br />
+            1	OPENED	open() has been called.<br />
+            2	HEADERS_RECEIVED	send() has been called, and headers and status are available.<br />
+            3	LOADING	Downloading; responseText holds partial data.<br />
+            4	DONE	The operation is complete.<br />
+        </p>
+        <button id="getdata"> Press Me To Get Github Data</button>
+        <p id="changeme"></p>
+        
+    </body>
+    <script>
+        let XHR = new XMLHttpRequest();
+        let git = "https://api.github.com/users/hiteshchoudhary"
+        let data;
+        XHR.open('GET', git);
+        XHR.onreadystatechange = function()
+        {
+            console.log(XHR.readyState); 
+            if(XHR.readyState == 4)
+            {
+                data = JSON.parse(this.responseText);
+                console.log(data.followers); 
+                console.log(typeof(data)); // without that JSON.parse it wouuld be an string so we first have to convertt it into object to access each of it's elements
+                
+                // whenever the state changes it always gves a response text with it's current reference
+            }
+        }
+        XHR.send();
+        let button = document.querySelector('#getdata');
+        button.addEventListener('click', function()
+        {
+            let foll = data.followers;
+            document.querySelector('#changeme').innerHTML = "<table> <tr> <td><img style='width: 150px; height: 150px;' alt='Unable To Find Image' id = 'src'/></td> </tr> <tr> <td>My Number Of Followers Are</td> <td  id = 'follo'> </td> </tr> </table>"
+            document.querySelector('#src').setAttribute('src', data.avatar_url);
+            document.querySelector('#follo').innerHTML += foll;
+        });
+        // Read about V8 engine in Cpp from it's repo on github itself as https://github.com/v8/v8
+    </script>
+</html>
