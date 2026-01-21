@@ -149,7 +149,7 @@ prom5_consume();
 
 // let's do this using then and catch
 
-fetch('https://jsonplaceholder.typicode.com/users')
+fetch('https://api.github.com/users/thakkarhet')
 .then((respon) =>
 {
     return respon.json();
@@ -162,3 +162,34 @@ fetch('https://jsonplaceholder.typicode.com/users')
 {
     console.log(error);
 })
+
+
+/*
+
+In Previous Times The Fetch was not available everything was done using XMLHttpRequest after that as development increase it became difficult so fetch library or API came to browser after that due to it's dependence on Web Streams API and AbortController Interface (we can stop the request)
+
+after this to implement it in Node they decided to write the Stram API by own now the async await everything is avoided and just fetch is used as god
+
+***  fetch return a promise  ****
+*** 
+A fetch() promise only rejects when the request fails, for example, because of a badly-formed request URL or a network error. A fetch() promise does not reject if the server responds with HTTP status codes that indicate errors (404, 504, etc.). Instead, a then() handler must check the Response.ok and/or Response.status properties.
+***
+along with an url in string we can also pass many things like headers, cores, navigate, body, method etc. 
+so fetch is capable of doing all majors works
+
+*/
+
+/*
+Remember from Async module in photo 3 we have a special Seperate Queue for fetch() it is called fetch/priority/microtask Queue
+
+methods like fetch present in these Queue are always executed first regardless of "ANY OTHER METHODS" it'll be like Idhar Mera Raj chalta hai (just kidding but it really has an high priority then all others)
+
+For Below Theory In Better Version Check ScreenShot Added In The Module
+
+Whenever is fetch used first 2 processes Occur Data and Web Browser/Node 
+
+Web Browser/Node sents network request if accepted(resolve) it goes to Onfulfiled function of data part else(reject) to OnRejection of data
+
+Data has 2 fields:-
+OnFulfill[] and OnRejection[] as discussed above according to function which is filled in data is sent as response to the global memory
+*/
