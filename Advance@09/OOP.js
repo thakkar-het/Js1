@@ -77,7 +77,7 @@ let user2 = new User("chai", 51, false, 11);
 
 console.log(user1);
 console.log(user1.sayHi()); 
-console.log(user1.constructor); // [Function: User]
+console.log(user1.constructor); // undefined
 console.log(user1.constructor()); // [Function: User]
 
 console.log(user2);
