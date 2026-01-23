@@ -123,4 +123,4 @@ class Father extends Het
 
 let Iphone = new Father("Iphone", "phone.com");
 Iphone.Logggme();
-console.log(Iphone.createID());
+// console.log(Iphone.createID()); // error
