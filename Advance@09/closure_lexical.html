@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Closure RL exp</title>
+        <style>
+            body
+            {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="Orange"> Orange</button>
+        <button id="Green"> Green</button>
+    </body>
+    <script>
+        // document.getElementById("Orange").addEventListener('click', function()
+        // {
+        //     document.body.style.backgroundColor = 'orange';
+        // });
+        // document.getElementById("Green").addEventListener('click', function()
+        // {
+        //     document.body.style.backgroundColor = 'green';
+        // });
+
+        // it will be difficult for higher number of functions to handle so make a function
+
+        // function ClickButton(color)
+        // {
+        //     document.body.style.backgroundColor = `${color}`;
+        // }
+        
+        // this will directly execute functiion without clicking and on clicking otheer buttons no change appers so we need to use closure with lexical scope here
+        
+        function ClickButton(color)
+        {
+            return function()
+            {
+                document.body.style.backgroundColor = `${color}`;
+            }
+        } // now it is fixed
+
+        document.getElementById("Orange").addEventListener('click', ClickButton("orange"));
+        document.getElementById("Green").addEventListener('click', ClickButton("green"));
+
+    </script>
+</html>
